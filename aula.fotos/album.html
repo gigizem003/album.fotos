@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Álbum de Fotos</title>
+    <link rel="stylesheet" href="styles.css"
+    
+</head>
+<body>
+    <h1>Meu Álbum de Fotos</h1>
+    <div id="cameraContainer">
+        <video id="camera" autoplay></video><br><br>
+        <canvas id="foto" style="display: none;"></canvas>
+        <button id="capturar">Tirar Foto</button>
+    </div>
+
+    <button id="verAlbum">Ver Álbum</button>
+    <button id="resetAlbum">Resetar Álbum</button>
+    <div class="album" id="album" style="display: none;"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.getElementById('resetAlbum').addEventListener('click', function() {
+            if (confirm('Tem certeza que deseja resetar o álbum?')) {
+                localStorage.removeItem('fotos');
+                document.getElementById('album').innerHTML = '';
+                document.getElementById('verAlbum').style.display = 'none';
+                document.getElementById('resetAlbum').style.display = 'none';
+                alert('Álbum resetado com sucesso!');
+            }
+        });
+    </script>
+</body>
+</html>
